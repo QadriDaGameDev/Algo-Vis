@@ -8,3 +8,4 @@ Algorithm Visualizer for Object Oriented Programming Project.
 ##Sarwan Tanweer
 
 Algo-Vis is an Algorithm Visualizer Application built on JAVA using the Swing and AWT Framework. It is made as a Semester Project for Bahria University Karachi Campus.
+Sarwan Edited this README
