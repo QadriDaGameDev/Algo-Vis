@@ -50,6 +50,10 @@ public class Mypanel extends JPanel implements Algorithms {
     shuffle.setFont(new Font("Arial Black", Font.PLAIN, 13));
     shuffle.setForeground(Color.WHITE);
     shuffle.setBackground(Color.black);
+    shuffle.addActionListener((ActionEvent e) -> {
+          this.shuffler();  
+    });
+    
     add(shuffle);
     
     insertion = new JButton("INSERTION SORT");
@@ -58,6 +62,11 @@ public class Mypanel extends JPanel implements Algorithms {
     insertion.setBorder(new LineBorder(Color.RED,3));
     insertion.setForeground(Color.WHITE);
     insertion.setBackground(Color.black);
+    insertion.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           
+        }});
     add(insertion);
     
     bubble = new JButton("BUBBLE SORT");
@@ -66,6 +75,11 @@ public class Mypanel extends JPanel implements Algorithms {
     bubble.setBorder(new LineBorder(Color.RED,3));
     bubble.setForeground(Color.WHITE);
     bubble.setBackground(Color.black);
+    bubble.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           
+        }});
     add(bubble);
     
     merge = new JButton("MERGE SORT");
@@ -74,6 +88,11 @@ public class Mypanel extends JPanel implements Algorithms {
     merge.setBorder(new LineBorder(Color.RED,3));
     merge.setForeground(Color.WHITE);
     merge.setBackground(Color.black);
+    merge.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           
+        }});
     add(merge);
     
     quick = new JButton("QUICK SORT");
@@ -82,6 +101,11 @@ public class Mypanel extends JPanel implements Algorithms {
     quick.setBorder(new LineBorder(Color.RED,3));
     quick.setForeground(Color.WHITE);
     quick.setBackground(Color.black);
+    quick.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           
+        }});
     add(quick);
     
     selection = new JButton("SELECTION SORT");
@@ -90,6 +114,11 @@ public class Mypanel extends JPanel implements Algorithms {
     selection.setBorder(new LineBorder(Color.RED,3));
     selection.setForeground(Color.WHITE);
     selection.setBackground(Color.black);
+    selection.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           
+        }});
     add(selection);
     
     shell = new JButton("SHELL SORT");
@@ -98,6 +127,11 @@ public class Mypanel extends JPanel implements Algorithms {
     shell.setBorder(new LineBorder(Color.RED,3));
     shell.setForeground(Color.WHITE);
     shell.setBackground(Color.black);
+    shell.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           
+        }});
     add(shell);
     }
 // to create bar height 
