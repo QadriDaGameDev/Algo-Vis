@@ -5,18 +5,22 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.geom.Rectangle2D;
 import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.border.LineBorder;
 
-public class Mypanel extends JPanel implements Algorithms {
+public class Mypanel extends JPanel {
     private final float width = 1200;
     private final int height = 600;
     private int size = 200;
     private float bar_width = (float)5.0;
     private float[] bar_height = new float[size];
+    private int currentIndex,transversingIndex;
     JButton shuffle,insertion,bubble,quick,merge,selection,shell;
     
     public Mypanel() {
@@ -29,7 +33,6 @@ public class Mypanel extends JPanel implements Algorithms {
     }
 
 //to shuffle lines 
-    @Override
     public void shuffler(){
     Random random = new Random();
     for (int i = 0; i < this.size; i++) {
@@ -39,6 +42,33 @@ public class Mypanel extends JPanel implements Algorithms {
         this.bar_height[j] = temp;
     }
     repaint();
+}
+//insertion sort
+public void insertionSort() {
+    new Thread(() -> {
+        for (int i = 1; i < size; i++) {
+            this.currentIndex=i;
+            float temp = bar_height[i];
+            int j = i - 1;
+            while (j >= 0 && bar_height[j] > temp) {
+                            this.transversingIndex=j;
+                bar_height[j + 1] = bar_height[j];
+                j--;
+            }
+            bar_height[j + 1] = temp;
+
+            SwingUtilities.invokeLater(() -> {
+                repaint();
+            });
+
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                System.out.println("AN ERROR OCCURRED WHILE ANIMATING");
+                e.printStackTrace();
+            }
+        }
+    }).start();
 }
 
 //button
@@ -62,11 +92,9 @@ public class Mypanel extends JPanel implements Algorithms {
     insertion.setBorder(new LineBorder(Color.RED,3));
     insertion.setForeground(Color.WHITE);
     insertion.setBackground(Color.black);
-    insertion.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-           
-        }});
+    insertion.addActionListener((ActionEvent e) -> {
+        this.insertionSort();
+    });
     add(insertion);
     
     bubble = new JButton("BUBBLE SORT");
@@ -153,5 +181,14 @@ public class Mypanel extends JPanel implements Algorithms {
             g2d.draw(bar);
             g2d.fill(bar);
         }
+        g2d.setColor(Color.YELLOW);
+        bar=new Rectangle2D.Float(this.currentIndex*bar_width, this.height-this.bar_height[this.currentIndex], this.bar_width, bar_height[this.currentIndex]);
+        g2d.fill(bar);
+        
+        g2d.setColor(Color.GREEN);
+        bar=new Rectangle2D.Float(this.transversingIndex*bar_width, this.height-this.bar_height[this.transversingIndex], this.bar_width, bar_height[this.transversingIndex]);
+        g2d.fill(bar);
+        
+        
     }
 }
