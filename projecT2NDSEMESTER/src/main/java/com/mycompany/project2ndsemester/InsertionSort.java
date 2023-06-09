@@ -1,4 +1,4 @@
-package com.mycompany.project2nd;
+package com.mycompany.project2ndsemester;
 
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
