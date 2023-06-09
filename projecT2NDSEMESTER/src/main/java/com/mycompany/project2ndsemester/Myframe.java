@@ -6,8 +6,8 @@ public class Myframe extends Mypanel {
     public Myframe() {
         JFrame frame = new JFrame("SORTING ALGORITHM VISUALIZER");
         Mypanel panel = new Mypanel();
-        frame.add(panel);
         frame.setResizable(false);
+        frame.add(panel.createPanel());
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
