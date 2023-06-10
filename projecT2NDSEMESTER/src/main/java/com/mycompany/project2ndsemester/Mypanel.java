@@ -23,6 +23,10 @@ public class Mypanel {
     JButton shuffle, insertion, bubble, quick, merge, selection, shell;
     JPanel panel;
 
+    public int getSizeBar_height() {
+        return bar_height.length;
+    }
+
     public void setCurrentIndex(int currentIndex) {
         this.currentIndex = currentIndex;
     }
@@ -88,36 +92,7 @@ public class Mypanel {
         }
         panel.repaint();
     }
-
-    // insertion sort
-    public void insertionSort() {
-        new Thread(() -> {
-            for (int i = 1; i < size; i++) {
-                currentIndex = i;
-                float temp = bar_height[i];
-                int j = i - 1;
-                while (j >= 0 && bar_height[j] > temp) {
-                    transversingIndex = j;
-                    bar_height[j + 1] = bar_height[j];
-                    j--;
-                }
-                bar_height[j + 1] = temp;
-
-                SwingUtilities.invokeLater(() -> {
-                    panel.repaint();
-                });
-
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    System.out.println("AN ERROR OCCURRED WHILE ANIMATING");
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-    }
-
-    // button
+ // button
     public void button() {
         shuffle = new JButton("SHUFFLE");
         shuffle.setBounds(1025, 50, 150, 45);
@@ -153,7 +128,8 @@ public class Mypanel {
         bubble.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+            BubbleSort b=new BubbleSort(panel,Mypanel.this);
+            b.sort(bar_height);
             }
         });
         panel.add(bubble);
