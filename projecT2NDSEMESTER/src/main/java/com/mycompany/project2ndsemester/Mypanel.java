@@ -1,4 +1,5 @@
-package com.mycompany.project2ndsemester;
+package com.mycompany.project2nd;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -19,7 +20,7 @@ public class Mypanel {
     private int size = 200;
     private float bar_width = (float) 5.0;
     private float[] bar_height = new float[size];
-    private int currentIndex, transversingIndex;
+    private int currentIndex, transversingIndex,currentIndex2;
     JButton shuffle, insertion, bubble, quick, merge, selection, shell;
     JPanel panel;
 
@@ -29,6 +30,14 @@ public class Mypanel {
 
     public void setCurrentIndex(int currentIndex) {
         this.currentIndex = currentIndex;
+    }
+
+    public int getCurrentIndex2() {
+        return currentIndex2;
+    }
+
+    public void setCurrentIndex2(int currentIndex2) {
+        this.currentIndex2 = currentIndex2;
     }
 
     public void setTransversingIndex(int transversingIndex) {
@@ -68,6 +77,11 @@ public class Mypanel {
                 g2d.setColor(Color.GREEN);
                 bar = new Rectangle2D.Float(getTransversingIndex() * bar_width, height - bar_height[getTransversingIndex()], bar_width, bar_height[getTransversingIndex()]);
                 g2d.fill(bar);
+                
+                // Draw current index bar in yellow
+                g2d.setColor(Color.YELLOW);
+                bar = new Rectangle2D.Float(getCurrentIndex2() * bar_width, height - bar_height[getCurrentIndex2()], bar_width, bar_height[getCurrentIndex2()]);
+                g2d.fill(bar);
             }
         };
 
@@ -92,6 +106,8 @@ public class Mypanel {
         }
         panel.repaint();
     }
+
+
  // button
     public void button() {
         shuffle = new JButton("SHUFFLE");
@@ -143,7 +159,9 @@ public class Mypanel {
         merge.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                MergeSort m=new MergeSort();
+                m.mergeSort(bar_height, 0, bar_height.length - 1, panel,Mypanel.this);
+                panel.repaint();
             }
         });
         panel.add(merge);
@@ -198,4 +216,6 @@ public class Mypanel {
             bar_height[i] = i * interval;
         }
     }
+
+    
 }
