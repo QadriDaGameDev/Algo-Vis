@@ -43,6 +43,7 @@ public class InsertionSort implements IAlgorithm{
                 }
             }
             JOptionPane.showMessageDialog(panel, Message);
+            JOptionPane.getRootFrame().setLocationRelativeTo(null);
         }).start();
     }
 }
