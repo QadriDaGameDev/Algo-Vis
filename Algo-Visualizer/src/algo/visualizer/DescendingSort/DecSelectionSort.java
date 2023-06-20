@@ -46,6 +46,7 @@ public class DecSelectionSort implements IAlgorithm {
                 }
             }
             JOptionPane.showMessageDialog(panel, Message);
+            JOptionPane.getRootFrame().setLocationRelativeTo(null);
         }).start();
     }
 }
