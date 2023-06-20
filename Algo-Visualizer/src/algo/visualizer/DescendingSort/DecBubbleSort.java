@@ -43,6 +43,7 @@ public class DecBubbleSort implements IAlgorithm {
                 }
             }
             JOptionPane.showMessageDialog(panel, Message);
+            JOptionPane.getRootFrame().setLocationRelativeTo(null);
         }).start();
     }
 }
