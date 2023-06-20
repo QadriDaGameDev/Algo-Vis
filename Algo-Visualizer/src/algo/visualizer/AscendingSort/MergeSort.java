@@ -29,6 +29,7 @@ public class MergeSort implements IAlgorithm {
         new Thread(() -> {
             mergeSort(array, 0, array.length - 1);
             JOptionPane.showMessageDialog(panel, Message);
+            JOptionPane.getRootFrame().setLocationRelativeTo(null);
         }).start();
     }
 
