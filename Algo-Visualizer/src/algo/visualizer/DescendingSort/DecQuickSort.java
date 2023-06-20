@@ -28,6 +28,7 @@ public class DecQuickSort implements IAlgorithm {
             quickSort(array, 0, array.length - 1);
             panel.repaint();
             JOptionPane.showMessageDialog(panel, Message);
+            JOptionPane.getRootFrame().setLocationRelativeTo(null);
         }).start();
     }
 
