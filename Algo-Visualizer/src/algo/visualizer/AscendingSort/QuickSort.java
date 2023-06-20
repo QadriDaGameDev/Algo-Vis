@@ -27,6 +27,7 @@ public class QuickSort implements IAlgorithm {
         new Thread(() -> {
             quickSort(array, 0, array.length - 1);
             JOptionPane.showMessageDialog(panel, Message);
+            JOptionPane.getRootFrame().setLocationRelativeTo(null);
         }).start();
     }
 
