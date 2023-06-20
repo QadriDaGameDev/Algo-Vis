@@ -49,6 +49,9 @@ public class BubbleSort implements IAlgorithm {
                 } // end of try-catch block
             }   //end of outer for-loop
             JOptionPane.showMessageDialog(panel, Message);
+            JOptionPane.getRootFrame().setLocationRelativeTo(null);
+
         }).start();
     }
 }
+
