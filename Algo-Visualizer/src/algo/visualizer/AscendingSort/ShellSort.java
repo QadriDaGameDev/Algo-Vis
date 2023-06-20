@@ -54,6 +54,8 @@ public class ShellSort implements IAlgorithm {
                 gap /= 2;
             }
             JOptionPane.showMessageDialog(panel, Message);
+            JOptionPane.getRootFrame().setLocationRelativeTo(null);
+
         }).start();
     }
 }
