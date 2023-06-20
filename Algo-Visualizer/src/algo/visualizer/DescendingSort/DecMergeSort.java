@@ -29,6 +29,7 @@ public class DecMergeSort implements IAlgorithm {
             mergeSort(array, 0, array.length - 1);
             panel.repaint();
             JOptionPane.showMessageDialog(panel, Message);
+            JOptionPane.getRootFrame().setLocationRelativeTo(null);      
         }).start();
     }
 
